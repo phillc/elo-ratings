@@ -2,9 +2,10 @@
 #include "rice/Class.hpp"
 #include "rice/Data_Type.hpp"
 #include "rice/Constructor.hpp"
-#include "CResultSet.h"
-#include "CCondensedResults.h"
 #include "CBradleyTerry.h"
+#include "CCondensedResults.h"
+#include "CCDistribution.h"
+#include "CResultSet.h"
 
 
 using namespace Rice;
@@ -19,13 +20,13 @@ class CBayeselo
         float CountGames(int i);
     private:
         CResultSet rs;
-        CCondensedResults crs;
-        CBradleyTerry bt;
+        // CCondensedResults crs;
+        // CBradleyTerry bt;
 };
 
 CBayeselo::CBayeselo()
-        : crs(rs),
-          bt(crs)
+        // : crs(rs),
+          // bt(crs)
 {
 }
 
@@ -37,7 +38,29 @@ int CBayeselo::GetPlayers() {
     return rs.GetPlayers();
 }
 
+
 double CBayeselo::GetElo(int i) {
+    CCondensedResults crs(rs);
+    crs.AddPrior(2.0); // CEloRating constructor
+    CBradleyTerry bt(crs);
+    
+    //IDC_MM
+    int fThetaW = 0;
+    int fThetaD = 0;
+    bt.MinorizationMaximization(fThetaW, fThetaD);
+    
+    
+    // int Resolution = 1000;
+    // double eloMin = -1500;
+    // double eloMax = 1500;
+    // CCDistribution cdist(Resolution, eloMin, eloMax);
+    // bt.GetPlayerDist(i, cdist);
+    
+    
+    // int eloAdvantage = 0;
+    // 
+    // bt.SetAdvantage(eloAdvantage);
+    
     double x = bt.GetElo(i);
     if (x > 0)
      return int(x+0.5);
@@ -59,7 +82,7 @@ void Init_bayeselo()
             .define_constructor(Constructor<CBayeselo>())
             .define_method("get_players", &CBayeselo::GetPlayers)
             .define_method("append", &CBayeselo::Append)
-            .define_method("get_elo", &CBayeselo::GetElo);
+            .define_method("get_elo", &CBayeselo::GetElo)
             .define_method("count_games", &CBayeselo::CountGames);
     
     
