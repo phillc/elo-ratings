@@ -23,8 +23,6 @@ class CBayeselo
 };
 
 CBayeselo::CBayeselo()
-        // : crs(rs),
-          // bt(crs)
 {
 }
 
@@ -47,17 +45,11 @@ int CBayeselo::GetElo(int i) {
     int fThetaD = 0;
     bt.MinorizationMaximization(fThetaW, fThetaD);
     
-    
-    // int Resolution = 1000;
-    // double eloMin = -1500;
-    // double eloMax = 1500;
-    // CCDistribution cdist(Resolution, eloMin, eloMax);
-    // bt.GetPlayerDist(i, cdist);
-    
-    
+    // advantage 0
     int eloAdvantage = 0;
     bt.SetAdvantage(eloAdvantage);
     
+    // RoundDouble(double x)
     double x = bt.GetElo(i);
     if (x > 0)
      return int(x+0.5);
