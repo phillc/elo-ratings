@@ -12,8 +12,8 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "bayeselo"
-  gem.homepage = "http://github.com/phillc/bayeselo"
+  gem.name = "elo-ratings"
+  gem.homepage = "http://github.com/phillc/elo-ratings"
   gem.license = "MIT"
   gem.summary = "Ruby wrapper for bayeselo"
   gem.description = "Ruby wrapper for bayeselo"
@@ -48,7 +48,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "bayeselo #{version}"
+  rdoc.title = "elo ratings #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
