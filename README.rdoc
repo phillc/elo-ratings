@@ -1,16 +1,21 @@
 = bayeselo
 
-Description goes here.
+This is a ruby interface to the c++ classes of Remi Coulom's Bayeselo, a tool for estimating Elo ratings.
 
-== Contributing to bayeselo
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
-* Fork the project
-* Start a feature/bugfix branch
-* Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+= The original Bayeselo
+
+For more information or information on the original Bayeselo, see http://remi.coulom.free.fr/Bayesian-Elo/
+You can reach the website of Remi Coulom, the author of the original Bayeselo, at http://remi.coulom.free.fr
+
+The original Bayeselo  is protected under the terms of the GNU GPL. See http://www.gnu.org/copyleft/gpl.html
+It is bundled under the ext directory of this project
+
+= Bayeselo, the gem
+
+The goal of this gem was to provide a simple interface to Bayeselo in ruby.
+There has currently been no attempt to reproduce all functionality provided by the original Bayeselo.
+
 
 == Copyright
 
