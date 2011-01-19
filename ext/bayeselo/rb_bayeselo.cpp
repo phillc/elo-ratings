@@ -16,12 +16,10 @@ class CBayeselo
         CBayeselo();
         void Append(unsigned w, unsigned b, unsigned r);
         int GetPlayers();
-        double GetElo(int i);
+        int GetElo(int i);
         float CountGames(int i);
     private:
         CResultSet rs;
-        // CCondensedResults crs;
-        // CBradleyTerry bt;
 };
 
 CBayeselo::CBayeselo()
@@ -39,7 +37,7 @@ int CBayeselo::GetPlayers() {
 }
 
 
-double CBayeselo::GetElo(int i) {
+int CBayeselo::GetElo(int i) {
     CCondensedResults crs(rs);
     crs.AddPrior(2.0); // CEloRating constructor
     CBradleyTerry bt(crs);
@@ -57,9 +55,8 @@ double CBayeselo::GetElo(int i) {
     // bt.GetPlayerDist(i, cdist);
     
     
-    // int eloAdvantage = 0;
-    // 
-    // bt.SetAdvantage(eloAdvantage);
+    int eloAdvantage = 0;
+    bt.SetAdvantage(eloAdvantage);
     
     double x = bt.GetElo(i);
     if (x > 0)
@@ -84,10 +81,4 @@ void Init_bayeselo()
             .define_method("append", &CBayeselo::Append)
             .define_method("get_elo", &CBayeselo::GetElo)
             .define_method("count_games", &CBayeselo::CountGames);
-    
-    
-    // Data_Type<CBradleyTerry> rb_bradleyterry = 
-    //         define_class_under<CBradleyTerry>(mBayeselo, "CBradleyTerry")
-    //         .define_constructor(Constructor<CBradleyTerry, CCondensedResults>())
-    //         .define_method("get_elo", &get_elo);
 }
