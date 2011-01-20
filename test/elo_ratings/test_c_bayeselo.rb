@@ -3,7 +3,7 @@ require 'helper'
 class TestCBayeselo < Test::Unit::TestCase
   context "append" do
     should "add the players" do
-      cbayeselo = Bayeselo::CBayeselo.new
+      cbayeselo = CBayeselo.new
       
       cbayeselo.append 0, 1, CBayeselo::Player2
       assert_equal 2, cbayeselo.get_players
@@ -18,8 +18,8 @@ class TestCBayeselo < Test::Unit::TestCase
     end
     
     should "not be global" do
-      cbayeselo1 = Bayeselo::CBayeselo.new
-      cbayeselo2 = Bayeselo::CBayeselo.new
+      cbayeselo1 = CBayeselo.new
+      cbayeselo2 = CBayeselo.new
       
       cbayeselo1.append 0, 1, CBayeselo::Player2
       assert_equal 2, cbayeselo1.get_players
@@ -54,7 +54,7 @@ class TestCBayeselo < Test::Unit::TestCase
       #    3 a       -5  268  268     1   50%     5  100% 
       #    4 c       -5  268  268     1   50%     5  100%
       
-      cbayeselo = Bayeselo::CBayeselo.new
+      cbayeselo = CBayeselo.new
       cbayeselo.append 0, 1, CBayeselo::Draw
       cbayeselo.append 2, 3, CBayeselo::Draw
       assert_equal -5,  cbayeselo.get_elo(0)
@@ -66,7 +66,7 @@ class TestCBayeselo < Test::Unit::TestCase
   
   context "count_games" do
     should "return the number of games a player played" do
-      cbayeselo = Bayeselo::CBayeselo.new
+      cbayeselo = CBayeselo.new
       cbayeselo.append 0, 1, CBayeselo::Player2
       cbayeselo.append 2, 3, CBayeselo::Player2
       cbayeselo.append 2, 0, CBayeselo::Player2

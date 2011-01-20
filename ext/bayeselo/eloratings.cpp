@@ -62,12 +62,12 @@ float CBayeselo::CountGames(int i) {
 }
 
 extern "C"
-void Init_bayeselo()
+void Init_elo_ratings()
 {
-    Rice::Module mBayeselo = define_module("Bayeselo");
+    Rice::Module mEloRatings = define_module("EloRatings");
     
     Data_Type<CBayeselo> c_bayeselo =
-            define_class_under<CBayeselo>(mBayeselo, "CBayeselo")
+            define_class_under<CBayeselo>(mEloRatings, "CBayeselo")
             .define_constructor(Constructor<CBayeselo>())
             .define_method("get_players", &CBayeselo::GetPlayers)
             .define_method("append", &CBayeselo::Append)
