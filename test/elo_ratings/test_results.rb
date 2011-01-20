@@ -1,33 +1,41 @@
 require 'helper'
 
-class TestEloRatings < Test::Unit::TestCase
+class TestResults < Test::Unit::TestCase
   context "add_game" do
-    should_eventually "accept the winner and loser and add a game to EloRatings" do
-      EloRatings = EloRatings.new
-      EloRatings.add_game :winner => "a", :loser => "b"
-      assert_equal 1, EloRatings.count_games("a")
-      assert_equal 1, EloRatings.count_games("b")
+    should "accept the winner and loser and add a game to EloRatings" do
+      results = Results.new
+      results.add_game "a", 3, Player1Win
+      assert_equal 1, results.count_games_for("a")
+      assert_equal 1, results.count_games_for(3)
     end
     
-    should_eventually "record games for the same player" do
-      EloRatings = EloRatings.new
-      EloRatings.add_game :winner => "a", :loser => "f"
-      EloRatings.add_game :winner => "e", :loser => "a"
-      EloRatings.add_game :winner => "a", :loser => "k"
-      assert_equal 3, EloRatings.count_games("a")
+    should "record games for the same player" do
+      results = Results.new
+      results.add_game "a", "f", Player1Win
+      results.add_game "e", "a", Player1Win
+      results.add_game "k", "a", Player2Win
+      results.add_game "a", 1, Player2Win
+      assert_equal 4, results.count_games_for("a")
     end
   end
   
-  context "get_elo" do
-    should_eventually "have exact opposite elo for two players" do
-      EloRatings = EloRatings.new
-      EloRatings.add_game :winner => "a", :loser => "b"
-      assert_equal EloRatings.get_elo("b"), -EloRatings.get_elo("a")
+  context "count_games_for" do
+    should "return zero for a player that hasn't been added to a game yet" do
+      results = Results.new
+      assert_equal 0, results.count_games_for("a")
+    end
+  end
+  
+  context "elo_for" do
+    should "have exact opposite elo for two players" do
+      results = Results.new
+      results.add_game "a", "b", Player1Win
+      assert_equal results.elo_for("b"), results.elo_for("a") * -1
     end
     
-    should_eventually "return nil for for a player that hasn't been recorded yet" do
-      EloRatings = EloRatings.new
-      assert_equal nil, EloRatings.get_elo("a")
+    should "return nil for for a player that hasn't been recorded yet" do
+      results = Results.new
+      assert_equal nil, results.elo_for("a")
     end
   end
 end

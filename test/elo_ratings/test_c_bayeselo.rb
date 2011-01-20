@@ -5,11 +5,11 @@ class TestCBayeselo < Test::Unit::TestCase
     should "add the players" do
       cbayeselo = CBayeselo.new
       
-      cbayeselo.append 0, 1, CBayeselo::Player2
+      cbayeselo.append 0, 1, Player2Win
       assert_equal 2, cbayeselo.get_players
-      cbayeselo.append 1, 2, CBayeselo::Player2
+      cbayeselo.append 1, 2, Player2Win
       assert_equal 3, cbayeselo.get_players
-      cbayeselo.append 3, 4, CBayeselo::Player2
+      cbayeselo.append 3, 4, Player2Win
       assert_equal 5, cbayeselo.get_players
       assert_equal 1, cbayeselo.count_games(0)
       assert_equal 2, cbayeselo.count_games(1)
@@ -21,11 +21,11 @@ class TestCBayeselo < Test::Unit::TestCase
       cbayeselo1 = CBayeselo.new
       cbayeselo2 = CBayeselo.new
       
-      cbayeselo1.append 0, 1, CBayeselo::Player2
+      cbayeselo1.append 0, 1, Player2Win
       assert_equal 2, cbayeselo1.get_players
-      cbayeselo1.append 1, 2, CBayeselo::Player2
+      cbayeselo1.append 1, 2, Player2Win
       assert_equal 3, cbayeselo1.get_players
-      cbayeselo1.append 3, 4, CBayeselo::Player2
+      cbayeselo1.append 3, 4, Player2Win
       assert_equal 5, cbayeselo1.get_players
       assert_equal 1, cbayeselo1.count_games(0)
       assert_equal 2, cbayeselo1.count_games(1)
@@ -55,8 +55,8 @@ class TestCBayeselo < Test::Unit::TestCase
       #    4 c       -5  268  268     1   50%     5  100%
       
       cbayeselo = CBayeselo.new
-      cbayeselo.append 0, 1, CBayeselo::Draw
-      cbayeselo.append 2, 3, CBayeselo::Draw
+      cbayeselo.append 0, 1, Draw
+      cbayeselo.append 2, 3, Draw
       assert_equal -5,  cbayeselo.get_elo(0)
       assert_equal 5, cbayeselo.get_elo(1)
       assert_equal -5, cbayeselo.get_elo(2)
@@ -67,10 +67,10 @@ class TestCBayeselo < Test::Unit::TestCase
   context "count_games" do
     should "return the number of games a player played" do
       cbayeselo = CBayeselo.new
-      cbayeselo.append 0, 1, CBayeselo::Player2
-      cbayeselo.append 2, 3, CBayeselo::Player2
-      cbayeselo.append 2, 0, CBayeselo::Player2
-      cbayeselo.append 11, 12, CBayeselo::Player2
+      cbayeselo.append 0, 1, Player2Win
+      cbayeselo.append 2, 3, Player2Win
+      cbayeselo.append 2, 0, Player2Win
+      cbayeselo.append 11, 12, Player2Win
       assert_equal 2, cbayeselo.count_games(0)
       assert_equal 1, cbayeselo.count_games(1)
       assert_equal 2, cbayeselo.count_games(2)

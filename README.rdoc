@@ -13,7 +13,9 @@ It is bundled under the ext directory of this project
 = EloRatings
 
 The goal of this gem was to provide a simple interface to Bayeselo in ruby.
+Advantage is set to zero (no advan advantage modifier to player 1)
 There has currently been no attempt to reproduce all functionality provided by Bayeselo.
+
 
 Only tested in ruby 1.9.1
 Ruby 1.9.2 throws some form of bus error at end of execution.
