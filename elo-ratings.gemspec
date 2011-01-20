@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{elo-ratings}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["phillc"]
@@ -79,6 +79,7 @@ Gem::Specification.new do |s|
     "ext/bayeselo/date.h",
     "ext/bayeselo/debug.h",
     "ext/bayeselo/elomain.cpp",
+    "ext/bayeselo/eloratings.cpp",
     "ext/bayeselo/extconf.rb",
     "ext/bayeselo/list.h",
     "ext/bayeselo/listi.h",
@@ -93,7 +94,6 @@ Gem::Specification.new do |s|
     "ext/bayeselo/position.h",
     "ext/bayeselo/random.cpp",
     "ext/bayeselo/random.h",
-    "ext/bayeselo/rb_bayeselo.cpp",
     "ext/bayeselo/readstr.cpp",
     "ext/bayeselo/readstr.h",
     "ext/bayeselo/square.h",
@@ -102,11 +102,11 @@ Gem::Specification.new do |s|
     "ext/bayeselo/version.cpp",
     "ext/bayeselo/version.h",
     "ext/bayeselo/version_number.h",
-    "lib/bayeselo.rb",
-    "lib/bayeselo/bayeselo.rb",
-    "lib/bayeselo/c_bayeselo.rb",
-    "test/bayeselo/test_bayeselo.rb",
-    "test/bayeselo/test_c_bayeselo.rb",
+    "lib/elo_ratings.rb",
+    "lib/elo_ratings/c_bayeselo.rb",
+    "lib/elo_ratings/results.rb",
+    "test/elo_ratings/test_c_bayeselo.rb",
+    "test/elo_ratings/test_results.rb",
     "test/helper.rb"
   ]
   s.homepage = %q{http://github.com/phillc/elo-ratings}
@@ -115,8 +115,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Ruby wrapper for bayeselo}
   s.test_files = [
-    "test/bayeselo/test_bayeselo.rb",
-    "test/bayeselo/test_c_bayeselo.rb",
+    "test/elo_ratings/test_c_bayeselo.rb",
+    "test/elo_ratings/test_results.rb",
     "test/helper.rb"
   ]
 

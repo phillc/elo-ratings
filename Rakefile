@@ -19,7 +19,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = "Ruby wrapper for bayeselo"
   gem.email = "spyyderz@gmail.com"
   gem.authors = ["phillc"]
-  gem.extensions << "ext/elo-ratings/extconf.rb"
+  gem.extensions << "ext/bayeselo/extconf.rb"
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
