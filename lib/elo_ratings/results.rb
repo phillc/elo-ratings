@@ -11,7 +11,7 @@ module EloRatings
     
     def count_games_for player
       return 0 if !exists? player
-      @c_bayeselo.count_games index_for(player)
+      @c_bayeselo.count_games(index_for(player)).to_i
     end
     
     def elo_for player

@@ -16,9 +16,24 @@ The goal of this gem was to provide a simple interface to Bayeselo in ruby.
 Advantage is set to zero (no advan advantage modifier to player 1)
 There has currently been no attempt to reproduce all functionality provided by Bayeselo.
 
-
 Only tested in ruby 1.9.1
 Ruby 1.9.2 throws some form of bus error at end of execution.
+
+= Usage
+
+require 'elo_ratings'
+ratings = EloRatings::Results.new
+ratings.add_game "player 1", "player 2", EloRatings::Player1Win
+ratings.add_game "player 1", "player 2", EloRatings::Player2Win
+ratings.add_game "player 3", "player 2", EloRatings::Player1Win
+
+ratings.count_games_for "player 2"
+ => 3
+ratings.elo_for "player 2"
+ => -37
+ratings.elo_for "player 3"
+ => 86
+
 
 == Copyright
 
