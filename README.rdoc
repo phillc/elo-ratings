@@ -1,4 +1,4 @@
-= EloRatings
+= All Up in Your Elo
 
 This is a ruby interface to the c++ classes of Remi Coulom's Bayeselo, a tool for estimating Elo ratings.
 
@@ -10,7 +10,7 @@ You can reach the website of Remi Coulom, the author of Bayeselo, at http://remi
 Bayeselo is protected under the terms of the GNU GPL. See http://www.gnu.org/copyleft/gpl.html
 It is bundled under the ext directory of this project
 
-= EloRatings
+= All Up in Your Elo
 
 The goal of this gem was to provide a simple interface to Bayeselo in ruby.
 Advantage is set to zero (no advan advantage modifier to player 1)

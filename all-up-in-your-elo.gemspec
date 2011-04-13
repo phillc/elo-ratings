@@ -4,12 +4,12 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{elo-ratings}
+  s.name = %q{all-up-in-your-elo}
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["phillc"]
-  s.date = %q{2011-01-19}
+  s.date = %q{2011-04-13}
   s.description = %q{Ruby wrapper for bayeselo}
   s.email = %q{spyyderz@gmail.com}
   s.extensions = ["ext/bayeselo/extconf.rb", "ext/bayeselo/extconf.rb"]
@@ -109,7 +109,7 @@ Gem::Specification.new do |s|
     "test/elo_ratings/test_results.rb",
     "test/helper.rb"
   ]
-  s.homepage = %q{http://github.com/phillc/elo-ratings}
+  s.homepage = %q{http://github.com/phillc/https://github.com/phillc/all-up-in-your-elo}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
